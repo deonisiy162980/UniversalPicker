@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.author       = "Denis Petrov"
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/deonisiy162980/UniversalPicker", :tag => "1.0.0" }
-  s.source_files = "UniversalPicker", "UniversalPicker/**/*.{h,m,swift}"
+  s.source_files = "UniversalPicker", "UniversalPicker/**/*.{h,m,swift,xib}"
   s.resources    = "UniversalPicker/PickerView.xib"
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
 
