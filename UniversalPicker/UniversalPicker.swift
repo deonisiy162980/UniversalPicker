@@ -10,7 +10,7 @@ import UIKit
 
 
 
-final class UniversalPicker: UIViewController
+public class UniversalPicker: UIViewController
 {
     
     @IBOutlet weak fileprivate var pickerView: UIPickerView!
@@ -43,14 +43,14 @@ final class UniversalPicker: UIViewController
             selectedValue = ("", "")
         }
         
-        super.init(nibName: "PickerView", bundle: nil)
+        super.init(nibName: "PickerView", bundle: Bundle(for: UniversalPicker.self))
     }
     
     
     public required init?(coder aDecoder: NSCoder)
     {
         selectedValue = ("", "")
-        super.init(nibName: "PickerView", bundle: nil)
+        super.init(nibName: "PickerView", bundle: Bundle(for: UniversalPicker.self))
     }
 }
 
@@ -58,7 +58,7 @@ final class UniversalPicker: UIViewController
 //MARK: - VIEW LOADS
 extension UniversalPicker
 {
-    override func viewDidLoad()
+    override public func viewDidLoad()
     {
         super.viewDidLoad()
         
@@ -66,7 +66,7 @@ extension UniversalPicker
     }
     
     
-    override func viewDidAppear(_ animated: Bool)
+    override public func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
         

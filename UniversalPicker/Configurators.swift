@@ -16,12 +16,12 @@ public enum PickersType
 
 
 //MARK: - PICKER PROTOCOLS
-protocol DPConfiguratorProtocol
+public protocol DPConfiguratorProtocol
 {
     var type : PickersType {get}
 }
 
-@objc protocol UniversalPickerDelegate
+@objc public protocol UniversalPickerDelegate
 {
     @objc optional func didSelect(key : String, value : String)
     @objc optional func didSelectDate(date : Date)
@@ -35,7 +35,7 @@ public struct Configurator
     public struct OtherConfigurator: DPConfiguratorProtocol
     {
         var dict : [String : String]
-        let type = PickersType.other
+        public let type = PickersType.other
         var selectedValue: String?
         
         public init(withDictOfKeysAndValues dict_ : [String : String], andSelectedValue sel : String? = nil)
@@ -55,7 +55,7 @@ extension Configurator
         var startDate : Date?
         var minimumDate : Date?
         var maximumDate : Date?
-        let type = PickersType.date
+        public let type = PickersType.date
         var selectedValue: String?
         
         public init(withStartDate sDate : Date?, withMinimumDate mDate : Date?, andMaximumDate eDate : Date?)
@@ -76,7 +76,7 @@ extension Configurator
         var startTime : Date?
         var minimumTime : Date?
         var maximumTime : Date?
-        let type = PickersType.time
+        public let type = PickersType.time
         
         public init(withStartTime sTime : Date?, withMinimumTime mTime : Date?, andMaximumTime eTime : Date?)
         {
