@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class UniversalPicker: UIViewController
+public class UniversalPicker: UIViewController
 {
     
     @IBOutlet weak fileprivate var pickerView: UIPickerView!
@@ -30,7 +30,7 @@ class UniversalPicker: UIViewController
     fileprivate let customizator : Configurator.Customizator?
     
     
-    init(withConfigurator conf : DPConfiguratorProtocol, withDelegate del : UniversalPickerDelegate, andCustomizator cust : Configurator.Customizator?)
+    public init(withConfigurator conf : DPConfiguratorProtocol, withDelegate del : UniversalPickerDelegate, andCustomizator cust : Configurator.Customizator?)
     {
         self.delegate = del
         self.configurator = conf
@@ -47,17 +47,17 @@ class UniversalPicker: UIViewController
             selectedValue = ("", "")
         }
         
-        super.init(nibName: "PickerView", bundle: nil)
+        super.init(nibName: "PickerView", bundle: Bundle(for: UniversalPicker.self))
     }
     
     
-    required init?(coder aDecoder: NSCoder)
+    public required init?(coder aDecoder: NSCoder)
     {
         selectedValue = ("", "")
         delegate = nil
         configurator = nil
         customizator = nil
-        super.init(nibName: "PickerView", bundle: nil)
+        super.init(nibName: "PickerView", bundle: Bundle(for: UniversalPicker.self))
     }
 }
 
@@ -65,7 +65,7 @@ class UniversalPicker: UIViewController
 //MARK: - VIEW LOADS
 extension UniversalPicker
 {
-    override func viewDidLoad()
+    override public func viewDidLoad()
     {
         super.viewDidLoad()
         
@@ -73,7 +73,7 @@ extension UniversalPicker
     }
     
     
-    override func viewDidAppear(_ animated: Bool)
+    override public func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
         
@@ -220,25 +220,25 @@ extension UniversalPicker
 //MARK: - PICKER DELEGATE
 extension UniversalPicker: UIPickerViewDataSource, UIPickerViewDelegate
 {
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
         return values.count
     }
     
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
         return 1
     }
     
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         return values[row].value
     }
     
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         selectedValue = values[row]
     }
@@ -248,7 +248,7 @@ extension UniversalPicker: UIPickerViewDataSource, UIPickerViewDelegate
 //MARK: - SHOW AND CLOSE
 extension UniversalPicker
 {
-    func showController(atParentController parentController : UIViewController)
+    public func showController(atParentController parentController : UIViewController)
     {
         self.view.frame = parentController.view.frame
         parentController.addChildViewController(self)
@@ -261,7 +261,7 @@ extension UniversalPicker
     }
     
     
-    func closeController()
+    public func closeController()
     {
         UIView.animate(withDuration: 0.2) {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0.0)
