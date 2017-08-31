@@ -9,19 +9,19 @@
 import UIKit
 
 //MARK: - PICKERS TYPES
-public enum PickersType
+enum PickersType
 {
     case date, time, other
 }
 
 
 //MARK: - PICKER PROTOCOLS
-public protocol DPConfiguratorProtocol
+protocol DPConfiguratorProtocol
 {
     var type : PickersType {get}
 }
 
-@objc public protocol UniversalPickerDelegate
+@objc protocol UniversalPickerDelegate
 {
     @objc optional func didSelect(key : String, value : String)
     @objc optional func didSelectDate(date : Date)
@@ -30,15 +30,15 @@ public protocol DPConfiguratorProtocol
 
 
 //MARK: - OTHER CONFIGURATOR
-public struct Configurator
+struct Configurator
 {
-    public struct OtherConfigurator: DPConfiguratorProtocol
+    struct OtherConfigurator: DPConfiguratorProtocol
     {
         var dict : [String : String]
-        public let type = PickersType.other
+        let type = PickersType.other
         var selectedValue: String?
         
-        public init(withDictOfKeysAndValues dict_ : [String : String], andSelectedValue sel : String? = nil)
+        init(withDictOfKeysAndValues dict_ : [String : String], andSelectedValue sel : String? = nil)
         {
             selectedValue = sel
             dict = dict_
@@ -50,15 +50,15 @@ public struct Configurator
 //MARK: - DATE CONFIGURATOR
 extension Configurator
 {
-    public struct DateConfigurator: DPConfiguratorProtocol
+    struct DateConfigurator: DPConfiguratorProtocol
     {
         var startDate : Date?
         var minimumDate : Date?
         var maximumDate : Date?
-        public let type = PickersType.date
+        let type = PickersType.date
         var selectedValue: String?
         
-        public init(withStartDate sDate : Date?, withMinimumDate mDate : Date?, andMaximumDate eDate : Date?)
+        init(withStartDate sDate : Date?, withMinimumDate mDate : Date?, andMaximumDate eDate : Date?)
         {
             self.startDate = sDate
             self.minimumDate = mDate
@@ -71,14 +71,14 @@ extension Configurator
 //MARK: - TIME CONFIGURATOR
 extension Configurator
 {
-    public struct TimeConfigurator: DPConfiguratorProtocol
+    struct TimeConfigurator: DPConfiguratorProtocol
     {
         var startTime : Date?
         var minimumTime : Date?
         var maximumTime : Date?
-        public let type = PickersType.time
+        let type = PickersType.time
         
-        public init(withStartTime sTime : Date?, withMinimumTime mTime : Date?, andMaximumTime eTime : Date?)
+        init(withStartTime sTime : Date?, withMinimumTime mTime : Date?, andMaximumTime eTime : Date?)
         {
             self.startTime = sTime
             self.maximumTime = eTime
@@ -91,8 +91,11 @@ extension Configurator
 //MARK: - CUSTOMIZATOR
 extension Configurator
 {
-    public struct Customizator
+    struct Customizator
     {
-        
+        var doneButtonColor : UIColor?
+        var cancelButtonColor : UIColor?
+        var doneButtonText : String?
+        var cancelButtonText : String?
     }
 }

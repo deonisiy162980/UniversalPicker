@@ -13,8 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UniversalPicker" customModule="UniversalPicker" customModuleProvider="target">
             <connections>
                 <outlet property="buttonView" destination="gHV-H6-lAG" id="Jqe-ha-rLG"/>
+                <outlet property="cancelButton" destination="AB1-wJ-K16" id="h5G-So-IbK"/>
                 <outlet property="datePickerBottomConstraint" destination="wK8-fC-xXH" id="CUb-tb-uRK"/>
                 <outlet property="datePickerView" destination="8CW-iI-Zhg" id="YP4-sM-8dY"/>
+                <outlet property="doneButton" destination="Wbs-7s-fpa" id="I4T-EM-Vs2"/>
                 <outlet property="otherPickerView" destination="YDH-h3-DdB" id="nkX-Oh-eWe"/>
                 <outlet property="pickerBottomConstraint" destination="eDH-dk-YSG" id="8ZS-Zw-5aW"/>
                 <outlet property="pickerView" destination="YDH-h3-DdB" id="9FU-jW-9Tc"/>
