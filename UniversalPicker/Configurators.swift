@@ -97,5 +97,13 @@ extension Configurator
         var cancelButtonColor : UIColor?
         var doneButtonText : String?
         var cancelButtonText : String?
+        
+        public init(doneButtonColor: UIColor?, cancelButtonColor: UIColor?, doneButtonText: String?, cancelButtonText: String?)
+        {
+            self.doneButtonColor = doneButtonColor
+            self.cancelButtonColor = cancelButtonColor
+            self.doneButtonText = doneButtonText
+            self.cancelButtonText = cancelButtonText
+        }
     }
 }
