@@ -26,6 +26,7 @@ public protocol DPConfiguratorProtocol
     @objc optional func didSelect(key : String, value : String)
     @objc optional func didSelectDate(date : Date)
     @objc optional func didSelectTime(time : Date)
+    @objc optional func didCancel()
 }
 
 

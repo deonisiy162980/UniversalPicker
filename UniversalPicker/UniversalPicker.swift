@@ -206,12 +206,14 @@ extension UniversalPicker
     
     @IBAction func cancelTapped(_ sender: Any)
     {
+        delegate.didCancel?()
         closeController()
     }
     
     
     @IBAction func gestureTapped(_ sender: Any)
     {
+        delegate.didCancel?()
         closeController()
     }
 }
@@ -240,7 +242,7 @@ extension UniversalPicker: UIPickerViewDataSource, UIPickerViewDelegate
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        selectedValue = values[row]
+        if values.count != 0 { selectedValue = values[row] }
     }
 }
 
